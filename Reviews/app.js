@@ -56,8 +56,8 @@ const reviews = [
   });
   
   // show person based on item
-  function showPerson(person) {
-    const item = reviews[person];
+  function showPerson() {
+    const item = reviews[currentItem];
     img.src = item.img;
     author.textContent = item.name;
     job.textContent = item.job;
@@ -69,7 +69,7 @@ const reviews = [
     if (currentItem > reviews.length - 1) {
       currentItem = 0;
     }
-    showPerson(currentItem);
+    showPerson();
   });
   // show prev person
   prevBtn.addEventListener("click", function () {
@@ -77,12 +77,10 @@ const reviews = [
     if (currentItem < 0) {
       currentItem = reviews.length - 1;
     }
-    showPerson(currentItem);
+    showPerson();
   });
   // show random person
   randomBtn.addEventListener("click", function () {
-    console.log("hello");
-  
     currentItem = Math.floor(Math.random() * reviews.length);
-    showPerson(currentItem);
+    showPerson();
   });
